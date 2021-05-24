@@ -5,7 +5,23 @@ import './App.css';
 
 const App = () => {
   const [data, setData] = useState([]);
-  const columns = [];
+  const COLUMNS = [
+    {
+      Header: "Name",
+      accessor: "name"
+    }, {
+      Header: "Device",
+      accessor: "device"
+    }, {
+      Header: "Path",
+      accessor: "path"
+    }, {
+      Header: "Status",
+      accessor: "status",
+      className:"status"
+    }
+  ];
+
   useEffect(() => {
     getData().then(res => setData(res))
   }, []);
@@ -14,8 +30,9 @@ const App = () => {
     <div className="App">
       <h1>Table Component</h1>
       <DataTable
+        id='data-table'
         data={data}
-        columns={columns}
+        columns={COLUMNS}
       />
     </div>
   );
