@@ -2,13 +2,15 @@ import React from 'react';
 import Table from '../Table';
 import TableHeader from '../TableHeader';
 import TableBody from '../TableBody';
-import { arrayOf, object , string} from 'prop-types';
+import { arrayOf, object , string, func} from 'prop-types';
 import './data-table.css';
 
 const DataTable = ({
     data = [],
     columns = [],
     id,
+    selectedRows,
+    setSelectedRows,
     ...remainingProps
 }) => {
 
@@ -25,6 +27,8 @@ const DataTable = ({
                 id={id} 
                 data={data}
                 columns={columns}
+                selectedRows={selectedRows}
+                setSelectedRows={setSelectedRows}
             />
         </Table>
     </>
@@ -37,5 +41,7 @@ export default DataTable;
 DataTable.propTypes = {
     data: arrayOf(object),
     columns: arrayOf(object),
-    id:string
+    id:string,
+    selectedRows:arrayOf(string),
+    setSelectedRows:func
 }
