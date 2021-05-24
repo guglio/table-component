@@ -13,7 +13,7 @@ const DataTable = ({
     setSelectedRows,
     ...remainingProps
 }) => {
-
+    
     return (<>
         <div>Action Bar Here</div>
         <Table
@@ -22,6 +22,7 @@ const DataTable = ({
             <TableHeader
                 id={id} 
                 columns={columns}
+                multiSelect={Boolean(selectedRows && setSelectedRows)}
             />
             <TableBody
                 id={id} 
@@ -29,6 +30,7 @@ const DataTable = ({
                 columns={columns}
                 selectedRows={selectedRows}
                 setSelectedRows={setSelectedRows}
+                multiSelect={Boolean(selectedRows && setSelectedRows)}
             />
         </Table>
     </>

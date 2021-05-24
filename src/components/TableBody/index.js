@@ -3,13 +3,16 @@ import Tbody from '../Tbody';
 import Tr from '../Tr';
 import Td from '../Td';
 import classnames from 'classnames';
-import { arrayOf, string, object } from 'prop-types';
+import { arrayOf, string, object, func, bool } from 'prop-types';
 
 const TableBody = ({
     id,
     data,
     columns,
     className,
+    selectedRows,
+    setSelectedRows,
+    multiSelect,
     ...remainingProps
 }) => {
 
@@ -23,6 +26,13 @@ const TableBody = ({
                     <Tr
                         key={`row-${id}-${i}`}
                     >
+                        {
+                            multiSelect ? <Td
+                                id={`headerCol-${id}-checkbox-${i}`}
+                            >
+                                <input type="checkbox"></input>
+                            </Td> : undefined
+                        }
                         {columns.map((currCol, i) => {
 
                             let key = `col-${id}-${i}`;
@@ -51,4 +61,7 @@ TableBody.propTypes = {
     data: arrayOf(object),
     columns: arrayOf(object),
     className: string,
+    selectedRows: arrayOf(string),
+    setSelectedRows: func,
+    multiSelect: bool
 }
