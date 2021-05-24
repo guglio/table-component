@@ -13,4 +13,5 @@ code {
 }
 :root{
   --hover-backgroud-color:#F5F5F5;
+  --selected-background-color:#eee;
 }

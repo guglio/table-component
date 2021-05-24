@@ -42,7 +42,7 @@ const ActionBar = ({
     return <div className='action-bar'>
         <div>
             <Checkbox
-                status={selectAllStatus()}
+                status={`${selectAllStatus()}`}
                 checked={Boolean(selectAllStatus())}
                 onChange={() => handleChange()}
             />
