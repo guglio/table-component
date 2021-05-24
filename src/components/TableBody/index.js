@@ -39,19 +39,14 @@ const TableBody = ({
                 data.map((currRow, i) =>
                     <Tr
                         key={`row-${id}-${i}`}
+                        tabIndex="0"
+                        className={classnames(selectedRows[i] && 'selected')}
                     >
                         {
                             multiSelect ? <Td
                                 id={`headerCol-${id}-checkbox-${i}`}
                             >
-                                {/* <input
-                                    type="checkbox"
-                                    value={i}
-                                    onChange={(e) => handleCheck(e.target.value)}
-                                    checked={Boolean(selectedRows[i])}
-                                /> */}
                                 <CheckBox
-                                    className="checkbox-select"
                                     value={i}
                                     onChange={(e) => handleCheck(e.target.value)}
                                     checked={Boolean(selectedRows[i])}
