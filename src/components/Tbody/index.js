@@ -1,7 +1,18 @@
-import React from 'react';
+import Classnames from 'classnames';
+import { string, node } from 'prop-types';
 
-const Tbody = ({ children }) => {
-    return <tbody>{children}</tbody>
+const Tbody = ({ children, className, ...remainigProps }) => {
+    return <tbody
+        {...remainigProps}
+        className={Classnames('table-body', className)}
+    >
+        {children}
+    </tbody>
 }
 
 export default Tbody;
+
+Tbody.propTypes = {
+    chidren: node,
+    className: string
+}
