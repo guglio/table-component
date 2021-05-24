@@ -4,6 +4,7 @@ import Tr from '../Tr';
 import Th from '../Th';
 import classnames from 'classnames';
 import { arrayOf, string, object } from 'prop-types';
+import './table-header.css';
 
 const TableHeader = ({
     columns = [],

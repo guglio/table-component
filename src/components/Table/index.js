@@ -1,11 +1,12 @@
 import classnames from 'classnames';
 import { node, string } from 'prop-types';
+import './table.css';
 
-function Table({
+const Table = ({
   children,
   className,
   ...remainingProps
-}) {
+}) => {
 
   return <table
         {...remainingProps}
