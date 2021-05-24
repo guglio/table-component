@@ -1,10 +1,15 @@
 import React from 'react';
 import Table from '../Table';
+import TableHeader from '../TableHeader';
+import TableBody from '../TableBody';
 
 const DataTable = props => {
     return (<>
     <div>DataTable here</div>
-    <Table />
+        <Table>
+            <TableHeader />
+            <TableBody />
+        </Table>
     </>
     )
 }
