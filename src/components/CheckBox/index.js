@@ -6,7 +6,8 @@ const CheckBox = ({
     checked,
     onChange,
     className,
-    value
+    value,
+    status
 }) => {
     return (
         <label
@@ -19,7 +20,7 @@ const CheckBox = ({
                 value={value}
             />
             <span
-                className={classnames("checkmark", checked ? 'checked' : '')}
+                className={classnames("checkmark", status ? status : checked ? 'checked' : '')}
             />
         </label>)
 }
@@ -30,5 +31,6 @@ CheckBox.propTypes = {
     checked: bool,
     onChange: func,
     className: string,
-    value: number
+    value: number,
+    status: string
 }
