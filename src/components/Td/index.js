@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import { node, string } from 'prop-types';
+import './td.css'
 
 const Td = ({ children, className, ...remainigProps }) => {
     return <td

@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import { node, string } from 'prop-types';
+import './tr.css';
 
 const Tr = ({ children, className, ...remainigProps }) => {
     return <tr
