@@ -2,6 +2,7 @@ import React from 'react';
 import Table from '../Table';
 import TableHeader from '../TableHeader';
 import TableBody from '../TableBody';
+import ActionBar from '../ActionBar';
 import { arrayOf, object , string, func} from 'prop-types';
 import './data-table.css';
 
@@ -15,7 +16,13 @@ const DataTable = ({
 }) => {
     
     return (<>
-        <div>Action Bar Here</div>
+        <ActionBar
+            selectedRows={selectedRows}
+            setSelectedRows={setSelectedRows}
+            total={data.length}
+            data={data}
+            multiSelect={Boolean(selectedRows && setSelectedRows)}
+        />
         <Table
             {...remainingProps}
         >
