@@ -3,6 +3,7 @@ import Table from '../Table';
 import TableHeader from '../TableHeader';
 import TableBody from '../TableBody';
 import { arrayOf, object , string} from 'prop-types';
+import './data-table.css';
 
 const DataTable = ({
     data = [],

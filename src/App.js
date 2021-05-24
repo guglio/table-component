@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DataTable from './components/DataTable';
 import { getData } from './services/';
+import classnames from 'classnames';
 import './App.css';
 
 const App = () => {
@@ -18,7 +19,8 @@ const App = () => {
     }, {
       Header: "Status",
       accessor: "status",
-      className:"status"
+      className:"status",
+      customFormat: (val) => <span className={classnames('status', val)}>{val}</span>
     }
   ];
 

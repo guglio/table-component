@@ -26,12 +26,13 @@ const TableBody = ({
                         {columns.map((currCol, i) => {
 
                             let key = `col-${id}-${i}`;
+                            let currValue = currRow[currCol.accessor];
                             return (
                                 <Td
                                     key={key}
                                     id={key}
                                 >
-                                    {currRow[currCol.accessor]}
+                                    {currCol.customFormat ? currCol.customFormat(currValue) : currValue}
                                 </Td>
                             )
                         })}
