@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import Tbody from '../Tbody';
 import Tr from '../Tr';
 import Td from '../Td';
+import CheckBox from '../CheckBox';
 import classnames from 'classnames';
 import { arrayOf, string, object, func, bool } from 'prop-types';
 
@@ -43,8 +44,14 @@ const TableBody = ({
                             multiSelect ? <Td
                                 id={`headerCol-${id}-checkbox-${i}`}
                             >
-                                <input
+                                {/* <input
                                     type="checkbox"
+                                    value={i}
+                                    onChange={(e) => handleCheck(e.target.value)}
+                                    checked={Boolean(selectedRows[i])}
+                                /> */}
+                                <CheckBox
+                                    className="checkbox-select"
                                     value={i}
                                     onChange={(e) => handleCheck(e.target.value)}
                                     checked={Boolean(selectedRows[i])}
