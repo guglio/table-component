@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { ReactComponent as DownloadIcon } from '../../assetts/file_download_black_24dp.svg';
-import { number, arrayOf, object, bool, string, func } from 'prop-types';
+import { number, arrayOf, object, string, func } from 'prop-types';
 import Checkbox from '../CheckBox';
 import './action-bar.css';
 
@@ -8,9 +8,10 @@ const ActionBar = ({
     selectedRows,
     setSelectedRows,
     total,
-    data,
-    multiSelect
+    data
 }) => {
+
+    const [downloadAvailable, setDownloadAvailable] = useState(false);
 
     const selectedRowsLength = useCallback(() => selectedRows.filter(r => r).length, [selectedRows]);
 
@@ -38,6 +39,29 @@ const ActionBar = ({
         setSelectedRows(selected);
     }
 
+    const handleClick = () => {
+        const messagesFile = selectedRows
+            .filter(r => r)
+            .reduce((acc, i) => acc = [...acc, `path: ${data[i].path}\ndevice: ${data[i].device}`], []);
+
+        let alertMessage = `List of file(s) available to download:\n\n${messagesFile.join('\n------------------------n')}`
+        
+        console.log(alertMessage);
+
+        window.alert(alertMessage)
+    }
+
+
+    useEffect(() => {
+        
+        const checkStatus = () => {
+            function isAvailable(curr) { return curr.status === 'available' };
+            return selectedRowsLength() > 0 ? selectedRows.filter(r => r).every(i => isAvailable(data[i])) : false;
+        };
+
+        setDownloadAvailable(checkStatus());
+
+    },[selectedRows,data, selectedRowsLength,setDownloadAvailable])
 
     return <div className='action-bar'>
         <div>
@@ -57,8 +81,14 @@ const ActionBar = ({
             }
         </div>
         <div>
-            <button>
-                <DownloadIcon />
+            <button
+                disabled={!downloadAvailable}
+                onClick={() => handleClick()}
+            >
+                <DownloadIcon
+                    aria-hidden="true"
+                    focusable="false"
+                />
                 <span>Download Selected</span>
             </button>
         </div>
@@ -71,6 +101,5 @@ ActionBar.propTypes = {
     selectedRows: arrayOf(string),
     setSelectedRows: func,
     total: number,
-    data: arrayOf(object),
-    multiSelect: bool
+    data: arrayOf(object)
 }
