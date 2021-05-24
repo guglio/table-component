@@ -6,6 +6,7 @@ import './App.css';
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [selectedRows, setSelectedRows] = useState([]);
   const COLUMNS = [
     {
       Header: "Name",
@@ -35,6 +36,8 @@ const App = () => {
         id='data-table'
         data={data}
         columns={COLUMNS}
+        selectedRows={selectedRows}
+        setSelectedRows={setSelectedRows}
       />
     </div>
   );
