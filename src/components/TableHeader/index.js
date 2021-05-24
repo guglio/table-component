@@ -19,9 +19,7 @@ const TableHeader = ({
                 {
                     multiSelect ? <Th
                         id={`header-col-${id}-checkbox`}
-                    >
-
-                    </Th> : undefined
+                    /> : undefined
                 }
                 {columns.map((item, i) => {
                     let key = `header-col-${id}-${i}`;

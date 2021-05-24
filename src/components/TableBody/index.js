@@ -1,4 +1,4 @@
-
+import React, { useCallback } from 'react';
 import Tbody from '../Tbody';
 import Tr from '../Tr';
 import Td from '../Td';
@@ -16,6 +16,19 @@ const TableBody = ({
     ...remainingProps
 }) => {
 
+
+    const handleCheck = useCallback(value => {
+        let currentSelected = [...selectedRows];
+
+        if (currentSelected[value]) {
+            currentSelected[value] = null;
+        }
+        else
+            currentSelected[value] = value
+
+        setSelectedRows(() => [...currentSelected]);
+    }, [selectedRows, setSelectedRows]);
+
     return (
         <Tbody
             {...remainingProps}
@@ -30,7 +43,12 @@ const TableBody = ({
                             multiSelect ? <Td
                                 id={`headerCol-${id}-checkbox-${i}`}
                             >
-                                <input type="checkbox"></input>
+                                <input
+                                    type="checkbox"
+                                    value={i}
+                                    onChange={(e) => handleCheck(e.target.value)}
+                                    checked={Boolean(selectedRows[i])}
+                                />
                             </Td> : undefined
                         }
                         {columns.map((currCol, i) => {
