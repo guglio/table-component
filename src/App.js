@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import DataTable from './components/DataTable';
 import { getData } from './services/';
 import classnames from 'classnames';
-import './App.css';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -31,7 +30,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Table Component</h1>
+      <h1>Data-table Component</h1>
       <DataTable
         id='data-table'
         data={data}
