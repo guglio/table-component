@@ -1,0 +1,4 @@
+.table-row.header-row:hover{
+    background-color: inherit;
+    cursor: inherit;
+}

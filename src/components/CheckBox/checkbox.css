@@ -1,0 +1,57 @@
+.container {
+    --checkmark-width:16px;
+
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    height: var(--checkmark-width);
+    width: var(--checkmark-width);
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--checkmark-width);
+    width: var(--checkmark-width);
+    background-color: #eee;
+}
+
+.container input:checked + .checkmark {
+    background-color: #4C92DD;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked + .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.container .checkmark.checked:after {
+    content:"\2713";
+}
+
+.container .checkmark.half:after {
+    content:"-";
+}

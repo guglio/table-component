@@ -1,0 +1,12 @@
+.table-col{
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.table-col:first-child{
+    padding-left:24px;
+}
+.table-col:last-child{
+    padding-right: 24px;
+}
