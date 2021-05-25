@@ -14,4 +14,51 @@ code {
 :root{
   --hover-backgroud-color:#F5F5F5;
   --selected-background-color:#eee;
+  --color: #424242;
+  --color-light:#B5B5B5;
+  --disabled-color:#999;
+}
+
+
+
+.button{
+  border: none;
+  margin:0;
+  padding:6px 8px;
+  background: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button:hover{
+  background: var(--hover-backgroud-color);
+  
+}
+
+.button svg,
+.button span {
+  vertical-align: middle;
+}
+
+.button.disabled,
+.button.disabled .button-icon > g,
+.button:active.disabled .button-icon > g{
+    color: var(--disabled-color);
+    fill: var(--disabled-color);
+}
+.button .button-icon{
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+    
+}
+.button .button-icon > g{
+    fill: var(--color);
+}
+
+.button:active,
+.button:active .button-icon > g{
+    fill: var(--color-light);
+    color: var(--color-light)
 }
