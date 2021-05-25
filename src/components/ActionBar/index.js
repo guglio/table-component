@@ -45,7 +45,7 @@ const ActionBar = ({
             .filter(r => r)
             .reduce((acc, i) => acc = [...acc, `path: ${data[i].path}\ndevice: ${data[i].device}`], []);
 
-        let alertMessage = `List of file(s) available to download:\n\n${messagesFile.join('\n------------------------n')}`
+        let alertMessage = `List of file(s) available to download:\n\n${messagesFile.join('\n------------------------\n')}`
         
         console.log(alertMessage);
 
@@ -64,7 +64,7 @@ const ActionBar = ({
 
     },[selectedRows,data, selectedRowsLength,setDownloadAvailable])
 
-    return <div className='action-bar'>
+    return (<div className='action-bar'>
         <div>
             <Checkbox
                 status={`${selectAllStatus()}`}
@@ -95,7 +95,7 @@ const ActionBar = ({
                 <span>Download Selected</span>
             </button>
         </div>
-    </div>
+    </div>)
 }
 
 export default ActionBar;
