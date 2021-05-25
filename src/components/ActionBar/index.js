@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { ReactComponent as DownloadIcon } from '../../assetts/file_download_black_24dp.svg';
 import { number, arrayOf, object, string, func } from 'prop-types';
 import Checkbox from '../CheckBox';
+import classnames from 'classnames';
 import './action-bar.css';
 
 const ActionBar = ({
@@ -84,10 +85,12 @@ const ActionBar = ({
             <button
                 disabled={!downloadAvailable}
                 onClick={() => handleClick()}
+                className={classnames(!downloadAvailable ? "disabled" : "", "button")}
             >
                 <DownloadIcon
                     aria-hidden="true"
                     focusable="false"
+                    className="button-icon download-icon"
                 />
                 <span>Download Selected</span>
             </button>
